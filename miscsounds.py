@@ -45,8 +45,7 @@ class Misc:
                           'ShitOnOurBodies',
                           'FuckingDemon',
                           'Cheezits1',
-                          'Cheezits2'
-                          ]
+                          'Cheezits2']
 
         self.count = len(self.filenames)
         self.nearest_square = int(floor(sqrt(self.count)))

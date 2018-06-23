@@ -40,8 +40,7 @@ class EricAndre:
                               'MellowMike',
                               'LittleSquirt',
                               'Daddy',
-                              'ArtProject'
-                              ]
+                              'ArtProject']
 
             self.count = len(self.filenames)
             self.nearest_square = int(floor(sqrt(self.count)))

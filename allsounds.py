@@ -1,348 +1,165 @@
 from tkinter import *
 from pygame import mixer
+from math import sqrt, floor
 
 
 # Board with all sounds
 class AllSounds:
-
     def __init__(self, window):
-        frame = Frame(window)
-        frame.pack()
+        self.frame = Frame(window)
+        self.frame.pack()
 
-        # Eric Andre sounds
-        yb = mixer.Sound('Sounds\Eric Andre\yahBoobay.wav')
-        LRon = mixer.Sound('Sounds\Eric Andre\Scientology\LRon.wav')
-        xenu = mixer.Sound('Sounds\Eric Andre\Scientology\Xenu.wav')
-        diplo = mixer.Sound('Sounds\Eric Andre\Scientology\DiploSong.wav')
-        second = mixer.Sound('Sounds\Eric Andre\Scientology\SecondComing.wav')
-        poopWine = mixer.Sound('Sounds\Eric Andre\Scientology\PoopIntoWine.wav')
-        saladMan = mixer.Sound('Sounds\Eric Andre\Salad Man\ImSaladMan.Wav')
-        lettuce = mixer.Sound('Sounds\Eric Andre\Salad Man\LettuceGuy.wav')
-        worst = mixer.Sound('Sounds\Eric Andre\Bird Up\WorstShow.wav')
-        osama = mixer.Sound('Sounds\Eric Andre\Bird Up\Osama.wav')
-        birdUp = mixer.Sound('Sounds\Eric Andre\Bird Up\BirdUp.wav')
-        ohoh = mixer.Sound('Sounds\Eric Andre\Bird Up\OhOh.wav')
-        time4ranch = mixer.Sound('Sounds\Eric Andre\Ranch1\Time4Ranch.wav')
-        nin = mixer.Sound('Sounds\Eric Andre\Ranch1\Convention.wav')
-        burningMan = mixer.Sound('Sounds\Eric Andre\Ranch1\BurningMan.wav')
-        ehYa = mixer.Sound('Sounds\Eric Andre\Ranch1\EhYa.wav')
-        legalize = mixer.Sound('Sounds\Eric Andre\Ranch1\Legalize.wav')
-        pizzaBall = mixer.Sound('Sounds\Eric Andre\Pizza Ball\PizzaBall.wav')
-        pizzaBallSong = mixer.Sound('Sounds\Eric Andre\Pizza Ball\PizzaBallSong.wav')
-        ranchRev = mixer.Sound('Sounds\Eric Andre\Ranch2\Revolution.wav')
-        steph = mixer.Sound('Sounds\Eric Andre\Ranch2\StephNuggz.wav')
-        brotendo = mixer.Sound('Sounds\Eric Andre\Ranch2\Brotendo.wav')
-        ranchUp = mixer.Sound('Sounds\Eric Andre\Ranch3\RanchItUp.wav')
-        cherokee = mixer.Sound('Sounds\Eric Andre\Ranch3\CherokeeChicks.wav')
-        buzz = mixer.Sound('Sounds\Eric Andre\Ranch3\BuzzMe.wav')
-        mellow = mixer.Sound('Sounds\Eric Andre\Ranch3\MellowMike.wav')
-        littleSquirt = mixer.Sound('Sounds\Eric Andre\Juice\LittleSquirt.wav')
-        daddy = mixer.Sound('Sounds\Eric Andre\Juice\Daddy.wav')
-        artProject = mixer.Sound('Sounds\Eric Andre\ArtProject.wav')
-        # ----------------------------------------------------------------------
-        # Tim and Eric sounds
-        greatJob = mixer.Sound('Sounds\Tim and Eric\PoopTube\GreatJob.wav')
-        bm = mixer.Sound('Sounds\Tim and Eric\PoopTube\BMFahrtz.wav')
-        pTube = mixer.Sound('Sounds\Tim and Eric\PoopTube\ThePoopTube.wav')
-        really = mixer.Sound('Sounds\Tim and Eric\PoopTube\ReallyWorks.wav')
-        better = mixer.Sound('Sounds\Tim and Eric\PoopTube\BetterThanItUsedToo.wav')
-        sell = mixer.Sound('Sounds\Tim and Eric\PoopTube\SellPoopTube.wav')
-        spagett1 = mixer.Sound('Sounds\Tim and Eric\Spagett\Spagett1.wav')
-        spagett2 = mixer.Sound('Sounds\Tim and Eric\Spagett\Spagett2.wav')
-        gotYa = mixer.Sound('Sounds\Tim and Eric\Spagett\GotYa.wav')
-        armando = mixer.Sound('Sounds\Tim and Eric\Spagett\Armando.wav')
-        spagett3 = mixer.Sound('Sounds\Tim and Eric\Spagett\Spagett3.wav')
-        cig = mixer.Sound('Sounds\Tim and Eric\Spagett2\CigJuice.wav')
-        spagett4 = mixer.Sound('Sounds\Tim and Eric\Spagett2\Spagett4.wav')
-        diah = mixer.Sound('Sounds\Tim and Eric\D Pants\DiahRihaJones.wav')
-        dpants = mixer.Sound('Sounds\Tim and Eric\D Pants\DPants.wav')
-        free = mixer.Sound('Sounds\Tim and Eric\FreeRealEstate.wav')
-        # ----------------------------------------------------------------------
-        # Steve Brule sounds
-        doris = mixer.Sound('Sounds\Steve Brule\Clinic\DorisSalahari.wav')
-        child = mixer.Sound('Sounds\Steve Brule\Clinic\LotsHaveEm.wav')
-        letsCheck = mixer.Sound('Sounds\Steve Brule\Clinic\LetsCheckItOut.wav')
-        cheers = mixer.Sound('Sounds\Steve Brule\Clinic\Cheers.wav')
-        gotcha = mixer.Sound('Sounds\Steve Brule\Clinic\IGotcha.wav')
-        dingus = mixer.Sound('Sounds\Steve Brule\Clinic\Dingus.wav')
-        gravy = mixer.Sound('Sounds\Steve Brule\Clinic\Gravy.wav')
-        orgasm = mixer.Sound('Sounds\Steve Brule\Clinic\Orgasm.wav')
-        dry = mixer.Sound('Sounds\Steve Brule\Clinic\Dry.wav')
-        church = mixer.Sound('Sounds\Steve Brule\Church\Church.wav')
-        lonely = mixer.Sound('Sounds\Steve Brule\Church\Lonely.wav')
-        jengus = mixer.Sound('Sounds\Steve Brule\Church\CallMeJengus.wav')
-        sneeze = mixer.Sound('Sounds\Steve Brule\Church\Sneeze.wav')
-        # ----------------------------------------------------------------------
-        # Neature Walk sounds
-        everyone = mixer.Sound('Sounds\Lenny Pepperbottom\EveryoneKnows.wav')
-        gun = mixer.Sound('Sounds\Lenny Pepperbottom\Gun.wav')
-        respect = mixer.Sound('Sounds\Lenny Pepperbottom\Respect.wav')
-        howNeat = mixer.Sound('Sounds\Lenny Pepperbottom\HowNeatIsThat.wav')
-        prettyNeat = mixer.Sound('Sounds\Lenny Pepperbottom\ThatsPrettyNeat.wav')
-        theWayItIs = mixer.Sound('Sounds\Lenny Pepperbottom\CuzTheWayItIs.wav')
-        beaut = mixer.Sound('Sounds\Lenny Pepperbottom\WhatABeaut.wav')
-        animalCalls = mixer.Sound('Sounds\Lenny Pepperbottom\AnimalCalls.wav')
-        gDang = mixer.Sound('Sounds\Lenny Pepperbottom\GDangIt.wav')
-        theme = mixer.Sound('Sounds\Lenny Pepperbottom\Theme.wav')
-        # ----------------------------------------------------------------------
-        # Miscellaneous sounds
-        yee = mixer.Sound('Sounds\Misc\Yee.wav')
-        yee2 = mixer.Sound('Sounds\Misc\Yee2.wav')
-        chilis = mixer.Sound('Sounds\Misc\Chilis.wav')
-        xp = mixer.Sound('Sounds\Misc\Windows.wav')
-        whisperW = mixer.Sound('Sounds\Misc\Wa\WarioWhisper.wav')
-        whisperWL = mixer.Sound('Sounds\Misc\Wa\WaluigiWhisper.wav')
-        poopWa = mixer.Sound('Sounds\Misc\Wa\PoopWa.wav')
-        coolWa = mixer.Sound('Sounds\Misc\Wa\CoolWas.wav')
-        fancyWa = mixer.Sound('Sounds\Misc\Wa\FancyWa.wav')
-        angryWa = mixer.Sound('Sounds\Misc\Wa\AngryWa.wav')
-        luigiWa = mixer.Sound('Sounds\Misc\Wa\LuigiWa.wav')
-        memes = mixer.Sound('Sounds\Misc\memes.wav')
-        just1 = mixer.Sound('Sounds\Misc\Just One\JustOne1.wav')
-        just2 = mixer.Sound('Sounds\Misc\Just One\JustOne2.wav')
-        just3 = mixer.Sound('Sounds\Misc\Just One\JustOne3.wav')
-        just4 = mixer.Sound('Sounds\Misc\Just One\JustOne4.wav')
-        just5 = mixer.Sound('Sounds\Misc\Just One\JustOne5.wav')
-        just6 = mixer.Sound('Sounds\Misc\Just One\JustOne6.wav')
-        friends = mixer.Sound('Sounds\Misc\Just One\FriendsDisappoint.wav')
-        weird = mixer.Sound('Sounds\Misc\Just One\WeirdQuestion.wav')
-        touches = mixer.Sound('Sounds\Misc\Just One\Touches.wav')
-        asuh = mixer.Sound('Sounds\Misc\Suh Dude\AsuhDude.wav')
-        dude = mixer.Sound('Sounds\Misc\Suh Dude\DudeSuh.wav')
-        fuckBees = mixer.Sound('Sounds\Misc\FuckBees\FuckBees.wav')
-        bees = mixer.Sound('Sounds\Misc\FuckBees\Bees.wav')
-        fuck = mixer.Sound('Sounds\Misc\FuckBees\Fuck.wav')
-        krusty = mixer.Sound('Sounds\Misc\KrustyKrab.wav')
-        eff = mixer.Sound('Sounds\Misc\Street Magic\WhatTheEff.wav')
-        sueYou = mixer.Sound('Sounds\Misc\Street Magic\SueYou.wav')
-        bodies = mixer.Sound('Sounds\Misc\Street Magic\ShitOnOurBodies.wav')
-        demon = mixer.Sound('Sounds\Misc\Street Magic\FuckingDemon.wav')
-        cheezit1 = mixer.Sound('Sounds\Misc\Street Magic 2\Cheezits1.wav')
-        cheezit2 = mixer.Sound('Sounds\Misc\Street Magic 2\Cheezits2.wav')
-        # ----------------------------------------------------------------------
+        self.board_name = 'All Sounds'
+        self.ext = 'wav'
+        self.path_tos = ['Sounds\Eric Andre',
+                          'Sounds\Tim and Eric',
+                          'Sounds\Steve Brule',
+                          'Sounds\Lenny Pepperbottom',
+                          'Sounds\Misc']
 
-        self.title = Label(frame, text='All Sounds')
-        self.title.grid(row=0, columnspan=10)
+        self.paths = []
+        self.sounds = []
+        self.buttons = []
 
-        # Eric Andre buttons
-        self.ybBtn = Button(frame, text='Yah Boobay!', command=yb.play)
-        self.LRonBtn = Button(frame, text='L Ron Hubbard', command=LRon.play)
-        self.xenuBtn = Button(frame, text='Xenu', command=xenu.play)
-        self.diploBtn = Button(frame, text='Diplo Song', command=diplo.play)
-        self.secondBtn = Button(frame, text='Second Coming', command=second.play)
-        self.poopWineBtn = Button(frame, text='Turn That Poop Into Wine', command=poopWine.play)
-        self.saladManBtn = Button(frame, text='Salad Man', command=saladMan.play)
-        self.lettuceBtn = Button(frame, text='Lettuce Guy', command=lettuce.play)
-        self.worstBtn = Button(frame, text='Worst Show on TV', command=worst.play)
-        self.osamaBtn = Button(frame, text='Osama bin Laden', command=osama.play)
-        self.birdUpBtn = Button(frame, text='Bird Up', command=birdUp.play)
-        self.ohohBtn = Button(frame, text='Oh oooooh', command=ohoh.play)
-        self.time4ranchBtn = Button(frame, text='Time For Some Ranch', command=time4ranch.play)
-        self.ninBtn = Button(frame, text='Nintendo Convention', command=nin.play)
-        self.burningManBtn = Button(frame, text='Burning Man Rehearsal', command=burningMan.play)
-        self.ehYaBtn = Button(frame, text='Eh Ya', command=ehYa.play)
-        self.legalizeBtn = Button(frame, text='Legalize Ranch', command=legalize.play)
-        self.pizzaBallBtn = Button(frame, text='Pizza Ball', command=pizzaBall.play)
-        self.pizzaBallSongBtn = Button(frame, text='Pizza Ball Sung', command=pizzaBallSong.play)
-        self.ranchRevBtn = Button(frame, text='Ranch Revolution', command=ranchRev.play)
-        self.stephBtn = Button(frame, text='Steph Nuggz', command=steph.play)
-        self.brotendoBtn = Button(frame, text='Yo Brotendo', command=brotendo.play)
-        self.ranchUpBtn = Button(frame, text='Ranch It Up', command=ranchUp.play)
-        self.cherokeeBtn = Button(frame, text='Cherokee Chicks', command=cherokee.play)
-        self.buzzBtn = Button(frame, text='Buzz Me', command=buzz.play)
-        self.mellowBtn = Button(frame, text='Mellow Mike', command=mellow.play)
-        self.littleSquirtBtn = Button(frame, text='Little Squirt', command=littleSquirt.play)
-        self.daddyBtn = Button(frame, text='Daddy Needs His Juice', command=daddy.play)
-        self.artProjectBtn = Button(frame, text='Art Project', command=artProject.play)
-        # ----------------------------------------------------------------------
+        ea_filenames = ['yahBoobay',
+                        'LRon',
+                        'Xenu',
+                        'DiploSong',
+                        'SecondComing',
+                        'PoopIntoWine',
+                        'ImSaladMan',
+                        'LettuceGuy',
+                        'WorstShow',
+                        'Osama',
+                        'BirdUp',
+                        'OhOh',
+                        'Time4Ranch',
+                        'Convention',
+                        'BurningMan',
+                        'EhYa',
+                        'Legalize',
+                        'PizzaBall',
+                        'PizzaBallSong',
+                        'Revolution',
+                        'StephNuggz',
+                        'Brotendo',
+                        'RanchItUp',
+                        'CherokeeChicks',
+                        'BuzzMe',
+                        'MellowMike',
+                        'LittleSquirt',
+                        'Daddy',
+                        'ArtProject']
 
-        self.ybBtn.grid(row=1, column=0)
-        self.LRonBtn.grid(row=1, column=1)
-        self.xenuBtn.grid(row=1, column=2)
-        self.diploBtn.grid(row=1, column=3)
-        self.secondBtn.grid(row=1, column=4)
-        self.poopWineBtn.grid(row=1, column=5)
-        self.saladManBtn.grid(row=1, column=6)
-        self.lettuceBtn.grid(row=1, column=7)
-        self.worstBtn.grid(row=1, column=8)
-        self.osamaBtn.grid(row=1, column=9)
-        self.birdUpBtn.grid(row=2, column=0)
-        self.ohohBtn.grid(row=2, column=1)
-        self.time4ranchBtn.grid(row=2, column=2)
-        self.ninBtn.grid(row=2, column=3)
-        self.burningManBtn.grid(row=2, column=4)
-        self.ehYaBtn.grid(row=2, column=5)
-        self.legalizeBtn.grid(row=2, column=6)
-        self.pizzaBallBtn.grid(row=2, column=7)
-        self.pizzaBallSongBtn.grid(row=2, column=8)
-        self.ranchRevBtn.grid(row=2, column=9)
-        self.stephBtn.grid(row=3, column=0)
-        self.brotendoBtn.grid(row=3, column=1)
-        self.ranchUpBtn.grid(row=3, column=2)
-        self.cherokeeBtn.grid(row=3, column=3)
-        self.buzzBtn.grid(row=3, column=4)
-        self.mellowBtn.grid(row=3, column=5)
-        self.littleSquirtBtn.grid(row=3, column=6)
-        self.daddyBtn.grid(row=3, column=7)
-        self.artProjectBtn.grid(row=3, column=8)
-        # ----------------------------------------------------------------------
-        # Tim and Eric buttons
-        self.greatJobBtn = Button(frame, text='Great Job!', command=greatJob.play)
-        self.bmBtn = Button(frame, text='B.M. Fahrtz', command=bm.play)
-        self.pTubeBtn = Button(frame, text='Poop Tube', command=pTube.play)
-        self.reallyBtn = Button(frame, text='It Really Works!', command=really.play)
-        self.betterBtn = Button(frame, text='It Smells Better...', command=better.play)
-        self.sellBtn = Button(frame, text='My Dad Said...', command=sell.play)
-        self.spagett1Btn = Button(frame, text='Spagett 1', command=spagett1.play)
-        self.spagett2Btn = Button(frame, text='Spagett 2', command=spagett2.play)
-        self.gotYaBtn = Button(frame, text='Got Ya', command=gotYa.play)
-        self.armandoBtn = Button(frame, text='Armando', command=armando.play)
-        self.spagett3Btn = Button(frame, text='Spagett 3', command=spagett3.play)
-        self.cigBtn = Button(frame, text='Good News', command=cig.play)
-        self.spagett4Btn = Button(frame, text='Spagett 4', command=spagett4.play)
-        self.diahBtn = Button(frame, text='Diah Riha-Jones', command=diah.play)
-        self.dpantsBtn = Button(frame, text='With D-Pants', command=dpants.play)
-        self.freeBtn = Button(frame, text='Free Real Estate', command=free.play)
-        # ----------------------------------------------------------------------
+        te_filenames = ['GreatJob',
+                        'BMFahrtz',
+                        'ThePoopTube',
+                        'ReallyWorks',
+                        'BetterThanItUsedToo',
+                        'SellPoopTube',
+                        'Spagett1',
+                        'Spagett2',
+                        'Spagett3',
+                        'Spagett4',
+                        'GotYa',
+                        'Armando',
+                        'CigJuice',
+                        'DiahRihaJones',
+                        'DPants',
+                        'FreeRealEstate']
 
-        self.greatJobBtn.grid(row=3, column=9)
-        self.bmBtn.grid(row=4, column=0)
-        self.pTubeBtn.grid(row=4, column=1)
-        self.reallyBtn.grid(row=4, column=2)
-        self.betterBtn.grid(row=4, column=3)
-        self.sellBtn.grid(row=4, column=4)
-        self.spagett1Btn.grid(row=4, column=5)
-        self.spagett2Btn.grid(row=4, column=6)
-        self.gotYaBtn.grid(row=4, column=7)
-        self.armandoBtn.grid(row=4, column=8)
-        self.spagett3Btn.grid(row=4, column=9)
-        self.cigBtn.grid(row=5, column=0)
-        self.spagett4Btn.grid(row=5, column=1)
-        self.diahBtn.grid(row=5, column=2)
-        self.dpantsBtn.grid(row=5, column=3)
-        self.freeBtn.grid(row=5, column=4)
-        # ----------------------------------------------------------------------
-        # Steve Brule buttons
-        self.dorisBtn = Button(frame, text='Doris Pringle-Salahari-Brule', command=doris.play)
-        self.childBtn = Button(frame, text='Lots of People Have Em', command=child.play)
-        self.letsCheckBtn = Button(frame, text="Let's Check It Out", command=letsCheck.play)
-        self.cheersBtn = Button(frame, text='Cheers', command=cheers.play)
-        self.gotchaBtn = Button(frame, text='Oh, I Gotcha', command=gotcha.play)
-        self.dingusBtn = Button(frame, text='Dingus', command=dingus.play)
-        self.gravyBtn = Button(frame, text='Making Gravy', command=gravy.play)
-        self.orgasmBtn = Button(frame, text='*Orgasm Noises*', command=orgasm.play)
-        self.dryBtn = Button(frame, text="I'm Dry", command=dry.play)
-        self.churchBtn = Button(frame, text='Church!', command=church.play)
-        self.lonelyBtn = Button(frame, text="It's Lonely At The Top", command=lonely.play)
-        self.jengusBtn = Button(frame, text='Praise Be Gord', command=jengus.play)
-        self.sneezeBtn = Button(frame, text='*Sneeze*', command=sneeze.play)
-        # ----------------------------------------------------------------------
+        sb_filenames = ['DorisSalahari',
+                        'LotsHaveEm',
+                        'LetsCheckItOut',
+                        'Cheers',
+                        'IGotcha',
+                        'Dingus',
+                        'Gravy',
+                        'Orgasm',
+                        'Dry',
+                        'Church',
+                        'Lonely',
+                        'CallMeJengus',
+                        'Sneeze']
 
-        self.dorisBtn.grid(row=5, column=5)
-        self.childBtn.grid(row=5, column=6)
-        self.letsCheckBtn.grid(row=5, column=7)
-        self.cheersBtn.grid(row=5, column=8)
-        self.gotchaBtn.grid(row=5, column=9)
-        self.dingusBtn.grid(row=6, column=0)
-        self.gravyBtn.grid(row=6, column=1)
-        self.orgasmBtn.grid(row=6, column=2)
-        self.dryBtn.grid(row=6, column=3)
-        self.churchBtn.grid(row=6, column=4)
-        self.lonelyBtn.grid(row=6, column=5)
-        self.jengusBtn.grid(row=6, column=6)
-        self.sneezeBtn.grid(row=6, column=7)
-        # ----------------------------------------------------------------------
-        # Neature Walk buttons
-        self.everyoneBtn = Button(frame, text='So Everyone Knows', command=everyone.play)
-        self.gunBtn = Button(frame, text='Pack A Gun', command=gun.play)
-        self.respectBtn = Button(frame, text='Respect Your Distance', command=respect.play)
-        self.howNeatBtn = Button(frame, text='How Neat Is That', command=howNeat.play)
-        self.prettyNeatBtn = Button(frame, text="That's Pretty Neat", command=prettyNeat.play)
-        self.theWayItIsBtn = Button(frame, text='Cuz The Way It Is', command=theWayItIs.play)
-        self.beautBtn = Button(frame, text='What A Beaut', command=beaut.play)
-        self.animalCallsBtn = Button(frame, text='*Animal Calls*', command=animalCalls.play)
-        self.gDangBtn = Button(frame, text='G Dang It', command=gDang.play)
-        self.themeBtn = Button(frame, text='Neature Walk Theme', command=theme.play)
-        # ----------------------------------------------------------------------
+        nw_filenames = ['EveryoneKnows',
+                        'Gun',
+                        'Respect',
+                        'HowNeatIsThat',
+                        'ThatsPrettyNeat',
+                        'CuzTheWayItIs',
+                        'WhatABeaut',
+                        'AnimalCalls',
+                        'GDangIt',
+                        'Theme']
 
-        self.everyoneBtn.grid(row=6, column=8)
-        self.gunBtn.grid(row=6, column=9)
-        self.respectBtn.grid(row=7, column=0)
-        self.howNeatBtn.grid(row=7, column=1)
-        self.prettyNeatBtn.grid(row=7, column=2)
-        self.theWayItIsBtn.grid(row=7, column=3)
-        self.beautBtn.grid(row=7, column=4)
-        self.animalCallsBtn.grid(row=7, column=5)
-        self.gDangBtn.grid(row=7, column=6)
-        self.themeBtn.grid(row=7, column=7)
-        # ----------------------------------------------------------------------
-        # Miscellaneous buttons
-        self.yee1Btn = Button(frame, text='Yee 1', command=yee.play)
-        self.yee2Btn = Button(frame, text='Yee 2', command=yee2.play)
-        self.chilisBtn = Button(frame, text="Chili's", command=chilis.play)
-        self.xpBtn = Button(frame, text='Windows XP', command=xp.play)
-        self.whisperWBtn = Button(frame, text='Wario Soft Wa', command=whisperW.play)
-        self.whisperWLBtn = Button(frame, text='Waluigi Soft Wa', command=whisperWL.play)
-        self.poopWaBtn = Button(frame, text='Poop Wa', command=poopWa.play)
-        self.coolWaBtn = Button(frame, text='Cool Was', command=coolWa.play)
-        self.fancyWaBtn = Button(frame, text='Fancy Wa', command=fancyWa.play)
-        self.angryWaBtn = Button(frame, text='Angry Wa', command=angryWa.play)
-        self.luigiWaBtn = Button(frame, text='Luigi Wa', command=luigiWa.play)
-        self.memesBtn = Button(frame, text='I Love Memes', command=memes.play)
-        self.just1Btn = Button(frame, text='Just One 1', command=just1.play)
-        self.just2Btn = Button(frame, text='Just One 2', command=just2.play)
-        self.just3Btn = Button(frame, text='Just One 3', command=just3.play)
-        self.just4Btn = Button(frame, text='Just One 4', command=just4.play)
-        self.just5Btn = Button(frame, text='Just One 5', command=just5.play)
-        self.just6Btn = Button(frame, text='Just One 6', command=just6.play)
-        self.friendsBtn = Button(frame, text='Friends Disappoint Me', command=friends.play)
-        self.weirdBtn = Button(frame, text='Weird Question?', command=weird.play)
-        self.touchesBtn = Button(frame, text='When She Touches Me', command=touches.play)
-        self.asuhBtn = Button(frame, text='Asuh Dude', command=asuh.play)
-        self.dudeBtn = Button(frame, text='Dude Suh', command=dude.play)
-        self.fuckBeesBtn = Button(frame, text='Fuck Bees', command=fuckBees.play)
-        self.beesBtn = Button(frame, text='Bees', command=bees.play)
-        self.fuckBtn = Button(frame, text='Fuck', command=fuck.play)
-        self.krustyBtn = Button(frame, text='Krusty Krab', command=krusty.play)
-        self.effBtn = Button(frame, text='What The Eff', command=eff.play)
-        self.sueYouBtn = Button(frame, text='Ace Of Clubs In My Ass', command=sueYou.play)
-        self.bodiesBtn = Button(frame, text='Stop Putting Shit On Our Bodies', command=bodies.play)
-        self.demonBtn = Button(frame, text='Fucking Demon', command=demon.play)
-        self.cheezit1Btn = Button(frame, text='Cheezits 1', command=cheezit1.play)
-        self.cheezit2Btn = Button(frame, text='Cheezits 2', command=cheezit2.play)
-        # ----------------------------------------------------------------------
+        misc_filenames = ['Yee',
+                          'Yee2',
+                          'Chilis',
+                          'Windows',
+                          'WarioWhisper',
+                          'WaluigiWhisper',
+                          'PoopWa',
+                          'CoolWas',
+                          'FancyWa',
+                          'AngryWa',
+                          'LuigiWa',
+                          'memes',
+                          'JustOne1',
+                          'JustOne2',
+                          'JustOne3',
+                          'JustOne4',
+                          'JustOne5',
+                          'JustOne6',
+                          'FriendsDisappoint',
+                          'WeirdQuestion',
+                          'Touches',
+                          'AsuhDude',
+                          'DudeSuh',
+                          'FuckBees',
+                          'Bees',
+                          'Fuck',
+                          'KrustyKrab',
+                          'WhatTheEff',
+                          'SueYou',
+                          'ShitOnOurBodies',
+                          'FuckingDemon',
+                          'Cheezits1',
+                          'Cheezits2']
 
-        self.yee1Btn.grid(row=7, column=8)
-        self.yee2Btn.grid(row=7, column=9)
-        self.chilisBtn.grid(row=8, column=0)
-        self.xpBtn.grid(row=8, column=1)
-        self.whisperWBtn.grid(row=8, column=2)
-        self.whisperWLBtn.grid(row=8, column=3)
-        self.poopWaBtn.grid(row=8, column=4)
-        self.coolWaBtn.grid(row=8, column=5)
-        self.fancyWaBtn.grid(row=8, column=6)
-        self.angryWaBtn.grid(row=8, column=7)
-        self.luigiWaBtn.grid(row=8, column=8)
-        self.memesBtn.grid(row=8, column=9)
-        self.just1Btn.grid(row=9, column=0)
-        self.just2Btn.grid(row=9, column=1)
-        self.just3Btn.grid(row=9, column=2)
-        self.just4Btn.grid(row=9, column=3)
-        self.just5Btn.grid(row=9, column=4)
-        self.just6Btn.grid(row=9, column=5)
-        self.friendsBtn.grid(row=9, column=6)
-        self.weirdBtn.grid(row=9, column=7)
-        self.touchesBtn.grid(row=9, column=8)
-        self.asuhBtn.grid(row=9, column=9)
-        self.dudeBtn.grid(row=10, column=0)
-        self.fuckBeesBtn.grid(row=10, column=1)
-        self.beesBtn.grid(row=10, column=2)
-        self.fuckBtn.grid(row=10, column=3)
-        self.krustyBtn.grid(row=10, column=4)
-        self.effBtn.grid(row=10, column=5)
-        self.sueYouBtn.grid(row=10, column=6)
-        self.bodiesBtn.grid(row=10, column=7)
-        self.demonBtn.grid(row=10, column=8)
-        self.cheezit1Btn.grid(row=10, column=9)
-        self.cheezit2Btn.grid(row=11, column=0)
-        # ----------------------------------------------------------------------
+        all_filenames = ea_filenames + te_filenames + sb_filenames + nw_filenames + misc_filenames
+
+        self.filenames = [ea_filenames, te_filenames, sb_filenames, nw_filenames, misc_filenames]
+        for i in range(0, len(self.path_tos)):
+            for name in self.filenames[i]:
+                path = '{}\{}.{}'.format(self.path_tos[i], name, self.ext)
+                self.paths.append(path)
+
+        self.count = len(self.paths)
+        self.nearest_square = int(floor(sqrt(self.count)))
+
+        for path in self.paths:
+            sound = mixer.Sound(path)
+            self.sounds.append(sound)
+
+        for i in range(0, self.count):
+            text = all_filenames[i]
+            btn = Button(self.frame, text=text, command=self.sounds[i].play)
+            self.buttons.append(btn)
+
+        self.make_grid()
+
+    def make_grid(self):
+        title = Label(self.frame, text=self.board_name)
+        title.grid(row=0, columnspan=self.nearest_square)
+        gridded = 0
+        row = 1
+        column = 0
+        while gridded < self.count:
+            self.buttons[gridded].grid(row=row, column=column)
+            gridded += 1
+            if gridded % self.nearest_square == 0:
+                column = 0
+                row += 1
+            else:
+                column += 1
