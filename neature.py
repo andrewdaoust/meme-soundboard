@@ -5,9 +5,8 @@ from math import sqrt, floor
 
 # Board with Neature Walk sounds
 class Neature(object):
-    def __init__(self, window):
-        self.frame = Frame(window)
-        self.frame.pack()
+    def __init__(self, frame):
+        self.frame = frame
 
         self.board_name = 'Neature Walk Sounds'
         self.path_to = 'Sounds\Lenny Pepperbottom'

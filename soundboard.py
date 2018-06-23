@@ -12,30 +12,29 @@ import miscsounds as misc
 class Soundboard:
 
     def __init__(self, window):
-        '''
-        mainMenu = Menu(window)
-        window.config(menu=mainMenu)
+        self.window = window
+        self.mainMenu = Menu(window)
+        window.config(menu=self.mainMenu)
 
-        submenu = Menu(mainMenu)
-        mainMenu.add_cascade(label='Soundboards', menu=submenu)
-        submenu.add_command(label='All', command=lambda: makeAll(frame, window))
+        submenu = Menu(self.mainMenu)
+        self.mainMenu.add_cascade(label='Soundboards', menu=submenu)
+        submenu.add_command(label='All', command=self.makeAll)
         submenu.add_separator()
-        submenu.add_command(label='Eric Andre', command=lambda: makeAndre(frame, window))
-        submenu.add_command(label='Tim and Eric', command=lambda: makeTE(frame, window))
-        submenu.add_command(label='Steve Brule', command=lambda: makeBrule(frame, window))
-        submenu.add_command(label='Other', command=lambda: makeMisc(frame, window))
-        '''
+        submenu.add_command(label='Eric Andre', command=self.makeAndre)
+        submenu.add_command(label='Tim and Eric', command=self.makeTE)
+        submenu.add_command(label='Steve Brule', command=self.makeBrule)
+        submenu.add_command(label='Other', command=self.makeMisc)
 
-        frame = Frame(window)
-        frame.pack()
+        self.frame = Frame(window)
+        self.frame.pack()
 
-        title = Label(frame, text='Choose a soundboard!')
-        allBtn = Button(frame, text='All sounds', command=lambda: makeAll(frame, window))
-        andreBtn = Button(frame, text='Eric Andre sounds', command=lambda: makeAndre(frame, window))
-        teBtn = Button(frame, text='Tim and Eric sounds', command=lambda: makeTE(frame, window))
-        bruleBtn = Button(frame, text='Steve Brule sounds', command=lambda: makeBrule(frame, window))
-        neatureBtn = Button(frame, text='Neature Walk sounds', command=lambda: makeNeature(frame, window))
-        miscBtn = Button(frame, text='Misc. sounds', command=lambda: makeMisc(frame, window))
+        title = Label(self.frame, text='Choose a soundboard!')
+        allBtn = Button(self.frame, text='All sounds', command=self.makeAll)
+        andreBtn = Button(self.frame, text='Eric Andre sounds', command=self.makeAndre)
+        teBtn = Button(self.frame, text='Tim and Eric sounds', command=self.makeTE)
+        bruleBtn = Button(self.frame, text='Steve Brule sounds', command=self.makeBrule)
+        neatureBtn = Button(self.frame, text='Neature Walk sounds', command=self.makeNeature)
+        miscBtn = Button(self.frame, text='Misc. sounds', command=self.makeMisc)
 
         title.grid(row=0, columnspan=2)
         allBtn.grid(row=1, column=0)
@@ -45,39 +44,47 @@ class Soundboard:
         neatureBtn.grid(row=3, column=0)
         miscBtn.grid(row=3, column=1)
 
+    def makeAll(self):
+        self.frame.destroy()
+        self.frame = Frame()
+        self.frame.pack()
+        all.AllSounds(self.frame)
 
-def makeAll(frame, window):
-    frame.destroy()
-    b = all.AllSounds(window)
+    def makeAndre(self):
+        self.frame.destroy()
+        self.frame = Frame()
+        self.frame.pack()
+        ea.EricAndre(self.frame)
+
+    def makeTE(self):
+        self.frame.destroy()
+        self.frame = Frame()
+        self.frame.pack()
+        te.TimAndEric(self.frame)
+
+    def makeBrule(self):
+        self.frame.destroy()
+        self.frame = Frame()
+        self.frame.pack()
+        sb.SteveBrule(self.frame)
+
+    def makeNeature(self):
+        self.frame.destroy()
+        self.frame = Frame()
+        self.frame.pack()
+        neat.Neature(self.frame)
+
+    def makeMisc(self):
+        self.frame.destroy()
+        self.frame = Frame()
+        self.frame.pack()
+        misc.Misc(self.frame)
 
 
-def makeAndre(frame, window):
-    frame.destroy()
-    b = ea.EricAndre(window)
+if __name__ == '__main__':
+    mixer.init()
+    pane = Tk()
 
+    s = Soundboard(pane)
 
-def makeTE(frame, window):
-    frame.destroy()
-    b = te.TimAndEric(window)
-
-
-def makeBrule(frame, window):
-    frame.destroy()
-    b = sb.SteveBrule(window)
-
-
-def makeNeature(frame, window):
-    frame.destroy()
-    b = neat.Neature(window)
-
-
-def makeMisc(frame, window):
-    frame.destroy()
-    b = misc.Misc(window)
-
-mixer.init()
-pane = Tk()
-
-s = Soundboard(pane)
-
-pane.mainloop()
+    pane.mainloop()

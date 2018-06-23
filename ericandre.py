@@ -4,9 +4,8 @@ from math import sqrt, floor
 
 # Board with Eric Andre sounds
 class EricAndre(object):
-    def __init__(self, window):
-        self.frame = Frame(window)
-        self.frame.pack()
+    def __init__(self, frame):
+        self.frame = frame
 
         self.board_name = 'Eric Andre Sounds'
         self.path_to = 'Sounds\Eric Andre'
