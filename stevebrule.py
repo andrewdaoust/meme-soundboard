@@ -4,7 +4,7 @@ from math import sqrt, floor
 
 
 # Board with Steve Brule sounds
-class SteveBrule:
+class SteveBrule(object):
     def __init__(self, window):
         self.frame = Frame(window)
         self.frame.pack()

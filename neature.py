@@ -3,6 +3,7 @@ from pygame import mixer
 from math import sqrt, floor
 
 
+# Board with Neature Walk sounds
 class Neature(object):
     def __init__(self, window):
         self.frame = Frame(window)

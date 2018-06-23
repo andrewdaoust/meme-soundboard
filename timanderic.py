@@ -4,7 +4,7 @@ from math import sqrt, floor
 
 
 # Board with Time and Eric sounds
-class TimAndEric:
+class TimAndEric(object):
     def __init__(self, window):
         self.frame = Frame(window)
         self.frame.pack()

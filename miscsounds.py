@@ -4,7 +4,7 @@ from math import sqrt, floor
 
 
 # Board with other miscellaneous sounds
-class Misc:
+class Misc(object):
     def __init__(self, window):
         self.frame = Frame(window)
         self.frame.pack()
