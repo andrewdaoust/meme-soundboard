@@ -12,10 +12,10 @@ class AllSounds:
         self.board_name = 'All Sounds'
         self.ext = 'wav'
         self.path_tos = ['Sounds\Eric Andre',
-                          'Sounds\Tim and Eric',
-                          'Sounds\Steve Brule',
-                          'Sounds\Lenny Pepperbottom',
-                          'Sounds\Misc']
+                         'Sounds\Tim and Eric',
+                         'Sounds\Steve Brule',
+                         'Sounds\Lenny Pepperbottom',
+                         'Sounds\Misc']
 
         self.paths = []
         self.sounds = []
