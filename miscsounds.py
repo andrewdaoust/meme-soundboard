@@ -115,4 +115,3 @@ class Misc:
         self.demonBtn.grid(row=7, column=1)
         self.cheezit1Btn.grid(row=7, column=2)
         self.cheezit2Btn.grid(row=7, column=3)
-        # ----------------------------------------------------------------------
