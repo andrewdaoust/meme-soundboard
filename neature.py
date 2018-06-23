@@ -42,8 +42,6 @@ class Neature(object):
             btn = Button(self.frame, text=text, command=self.sounds[i].play)
             self.buttons.append(btn)
 
-        print(self.buttons)
-
         self.make_grid()
 
     def make_grid(self):
@@ -53,7 +51,6 @@ class Neature(object):
         row = 1
         column = 0
         while gridded < self.count:
-            print(gridded)
             self.buttons[gridded-1].grid(row=row, column=column)
             gridded += 1
             if gridded % self.nearest_square == 0:
