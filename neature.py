@@ -1,76 +1,63 @@
 from tkinter import *
 from pygame import mixer
-import math
+from math import sqrt, floor
 
 
-class Neature:
+class Neature(object):
     def __init__(self, window):
-        frame = Frame(window)
-        frame.pack()
+        self.frame = Frame(window)
+        self.frame.pack()
 
-        self.sounds = {'Everyone Knows': {'path': 'Sounds\Lenny Pepperbottom\EveryoneKnows.wav'},
-                       'Gun': {'path': 'Sounds\Lenny Pepperbottom\Gun.wav'},
-                       'Respect': {'path': 'Sounds\Lenny Pepperbottom\Respect.wav'},
-                       'How Neat is That': {'path': 'Sounds\Lenny Pepperbottom\HowNeatIsThat.wav'},
-                       'Thats Pretty Neat': {'path': 'Sounds\Lenny Pepperbottom\ThatsPrettyNeat.wav'},
-                       'Cuz The Way It Is': {'path': 'Sounds\Lenny Pepperbottom\CuzTheWayItIs.wav'},
-                       'What A Beaut': {'path': 'Sounds\Lenny Pepperbottom\WhatABeaut.wav'},
-                       'Animal Calls': {'path': 'Sounds\Lenny Pepperbottom\AnimalCalls.wav'},
-                       'G Dang It': {'path'  'Sounds\Lenny Pepperbottom\GDangIt.wav'},
-                       'Neature Theme': {'path': 'Sounds\Lenny Pepperbottom\Theme.wav'}
-                       }
+        self.board_name = 'Neature Walk Sounds'
+        self.path_to = 'Sounds\Lenny Pepperbottom'
+        self.ext = 'wav'
 
-        the_keys = list(self.sounds.keys())
-        _count = len(self.sounds)
-        _closest_square = round(math.sqrt(_count))
+        self.filenames = ['EveryoneKnows',
+                          'Gun',
+                          'Respect',
+                          'HowNeatIsThat',
+                          'ThatsPrettyNeat',
+                          'CuzTheWayItIs',
+                          'WhatABeaut',
+                          'AnimalCalls',
+                          'GDangIt',
+                          'Theme']
 
-        # everyone = mixer.Sound('Sounds\Lenny Pepperbottom\EveryoneKnows.wav')
-        # gun = mixer.Sound('Sounds\Lenny Pepperbottom\Gun.wav')
-        # respect = mixer.Sound('Sounds\Lenny Pepperbottom\Respect.wav')
-        # howNeat = mixer.Sound('Sounds\Lenny Pepperbottom\HowNeatIsThat.wav')
-        # prettyNeat = mixer.Sound('Sounds\Lenny Pepperbottom\ThatsPrettyNeat.wav')
-        # theWayItIs = mixer.Sound('Sounds\Lenny Pepperbottom\CuzTheWayItIs.wav')
-        # beaut = mixer.Sound('Sounds\Lenny Pepperbottom\WhatABeaut.wav')
-        # animalCalls = mixer.Sound('Sounds\Lenny Pepperbottom\AnimalCalls.wav')
-        # gDang = mixer.Sound('Sounds\Lenny Pepperbottom\GDangIt.wav')
-        # theme = mixer.Sound('Sounds\Lenny Pepperbottom\Theme.wav')
-        # ----------------------------------------------------------------------
+        self.count = len(self.filenames)
+        self.nearest_square = int(floor(sqrt(self.count)))
+        self.paths = []
+        self.sounds = []
+        self.buttons = []
 
-        self.title = Label(frame, text='Neature Walk Sounds')
-        self.title.grid(row=0, columnspan=_closest_square)
-        # ----------------------------------------------------------------------
-        # TODO: Write functions to create Buttons and grid
-        for key in self.sounds:
-            self.sounds[key]['button'] = Button(frame, text=key, command=mixer.Sound(self.sounds[key]['path']).play)
+        for name in self.filenames:
+            path = '{}\{}.{}'.format(self.path_to, name, self.ext)
+            self.paths.append(path)
 
-        # self.everyoneBtn = Button(frame, text='So Everyone Knows', command=everyone.play)
-        # self.gunBtn = Button(frame, text='Pack A Gun', command=gun.play)
-        # self.respectBtn = Button(frame, text='Respect Your Distance', command=respect.play)
-        # self.howNeatBtn = Button(frame, text='How Neat Is That', command=howNeat.play)
-        # self.prettyNeatBtn = Button(frame, text="That's Pretty Neat", command=prettyNeat.play)
-        # self.theWayItIsBtn = Button(frame, text='Cuz The Way It Is', command=theWayItIs.play)
-        # self.beautBtn = Button(frame, text='What A Beaut', command=beaut.play)
-        # self.animalCallsBtn = Button(frame, text='*Animal Calls*', command=animalCalls.play)
-        # self.gDangBtn = Button(frame, text='G Dang It', command=gDang.play)
-        # self.themeBtn = Button(frame, text='Neature Walk Theme', command=theme.play)
-        # ----------------------------------------------------------------------
+        for path in self.paths:
+            sound = mixer.Sound(path)
+            self.sounds.append(sound)
 
-        # TODO: Build the grid of buttons
-        for i in range(0, _count):
-            the_row = 0
-            if the_row % _closest_square == 0:
-                the_row += 1
+        for i in range(0, self.count):
+            text = self.filenames[i]
+            btn = Button(self.frame, text=text, command=self.sounds[i].play)
+            self.buttons.append(btn)
 
-            self.sounds[self.sounds[the_keys[i]]['Button']].grid(row=the_row, column=the_row % _closest_square)
+        print(self.buttons)
 
-        # self.everyoneBtn.grid(row=1, column=0)
-        # self.gunBtn.grid(row=1, column=1)
-        # self.respectBtn.grid(row=1, column=2)
-        # self.howNeatBtn.grid(row=2, column=0)
-        # self.prettyNeatBtn.grid(row=2, column=1)
-        # self.theWayItIsBtn.grid(row=2, column=2)
-        # self.beautBtn.grid(row=3, column=0)
-        # self.animalCallsBtn.grid(row=3, column=1)
-        # self.gDangBtn.grid(row=3, column=2)
-        # self.themeBtn.grid(row=4, column=1)
-        # ----------------------------------------------------------------------
+        self.make_grid()
+
+    def make_grid(self):
+        title = Label(self.frame, text=self.board_name)
+        title.grid(row=0, columnspan=self.nearest_square)
+        gridded = 0
+        row = 1
+        column = 0
+        while gridded < self.count:
+            print(gridded)
+            self.buttons[gridded-1].grid(row=row, column=column)
+            gridded += 1
+            if gridded % self.nearest_square == 0:
+                column = 0
+                row += 1
+            else:
+                column += 1
