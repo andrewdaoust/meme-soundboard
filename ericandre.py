@@ -2,6 +2,7 @@ from tkinter import *
 from pygame import mixer
 from math import sqrt, floor
 
+
 # Board with Eric Andre sounds
 class EricAndre(object):
     def __init__(self, frame):

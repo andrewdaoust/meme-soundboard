@@ -10,7 +10,6 @@ import miscsounds as misc
 
 # This class runs the soundboard
 class Soundboard:
-
     def __init__(self, window):
         self.window = window
         self.mainMenu = Menu(window)
@@ -18,63 +17,63 @@ class Soundboard:
 
         submenu = Menu(self.mainMenu)
         self.mainMenu.add_cascade(label='Soundboards', menu=submenu)
-        submenu.add_command(label='All', command=self.makeAll)
+        submenu.add_command(label='All', command=self.make_all)
         submenu.add_separator()
-        submenu.add_command(label='Eric Andre', command=self.makeAndre)
-        submenu.add_command(label='Tim and Eric', command=self.makeTE)
-        submenu.add_command(label='Steve Brule', command=self.makeBrule)
-        submenu.add_command(label='Other', command=self.makeMisc)
+        submenu.add_command(label='Eric Andre', command=self.make_andre)
+        submenu.add_command(label='Tim and Eric', command=self.make_te)
+        submenu.add_command(label='Steve Brule', command=self.make_brule)
+        submenu.add_command(label='Misc. sounds', command=self.make_misc)
 
         self.frame = Frame(window)
         self.frame.pack()
 
         title = Label(self.frame, text='Choose a soundboard!')
-        allBtn = Button(self.frame, text='All sounds', command=self.makeAll)
-        andreBtn = Button(self.frame, text='Eric Andre sounds', command=self.makeAndre)
-        teBtn = Button(self.frame, text='Tim and Eric sounds', command=self.makeTE)
-        bruleBtn = Button(self.frame, text='Steve Brule sounds', command=self.makeBrule)
-        neatureBtn = Button(self.frame, text='Neature Walk sounds', command=self.makeNeature)
-        miscBtn = Button(self.frame, text='Misc. sounds', command=self.makeMisc)
+        all_btn = Button(self.frame, text='All sounds', command=self.make_all)
+        andre_btn = Button(self.frame, text='Eric Andre sounds', command=self.make_andre)
+        te_btn = Button(self.frame, text='Tim and Eric sounds', command=self.make_te)
+        brule_btn = Button(self.frame, text='Steve Brule sounds', command=self.make_brule)
+        neature_btn = Button(self.frame, text='Neature Walk sounds', command=self.make_neature)
+        misc_btn = Button(self.frame, text='Misc. sounds', command=self.make_misc)
 
-        title.grid(row=0, columnspan=2)
-        allBtn.grid(row=1, column=0)
-        andreBtn.grid(row=1, column=1)
-        teBtn.grid(row=2, column=0)
-        bruleBtn.grid(row=2, column=1)
-        neatureBtn.grid(row=3, column=0)
-        miscBtn.grid(row=3, column=1)
+        title.grid(row=0, columnspan=3)
+        all_btn.grid(row=1, column=0)
+        andre_btn.grid(row=1, column=1)
+        te_btn.grid(row=1, column=2)
+        brule_btn.grid(row=2, column=0)
+        neature_btn.grid(row=2, column=1)
+        misc_btn.grid(row=2, column=2)
 
-    def makeAll(self):
+    def make_all(self):
         self.frame.destroy()
         self.frame = Frame()
         self.frame.pack()
         all.AllSounds(self.frame)
 
-    def makeAndre(self):
+    def make_andre(self):
         self.frame.destroy()
         self.frame = Frame()
         self.frame.pack()
         ea.EricAndre(self.frame)
 
-    def makeTE(self):
+    def make_te(self):
         self.frame.destroy()
         self.frame = Frame()
         self.frame.pack()
         te.TimAndEric(self.frame)
 
-    def makeBrule(self):
+    def make_brule(self):
         self.frame.destroy()
         self.frame = Frame()
         self.frame.pack()
         sb.SteveBrule(self.frame)
 
-    def makeNeature(self):
+    def make_neature(self):
         self.frame.destroy()
         self.frame = Frame()
         self.frame.pack()
         neat.Neature(self.frame)
 
-    def makeMisc(self):
+    def make_misc(self):
         self.frame.destroy()
         self.frame = Frame()
         self.frame.pack()
