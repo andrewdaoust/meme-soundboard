@@ -64,17 +64,17 @@ class EricAndre:
 
             self.make_grid()
 
-        def make_grid(self):
-            title = Label(self.frame, text=self.board_name)
-            title.grid(row=0, columnspan=self.nearest_square)
-            gridded = 0
-            row = 1
-            column = 0
-            while gridded < self.count:
-                self.buttons[gridded - 1].grid(row=row, column=column)
-                gridded += 1
-                if gridded % self.nearest_square == 0:
-                    column = 0
-                    row += 1
-                else:
-                    column += 1
+    def make_grid(self):
+        title = Label(self.frame, text=self.board_name)
+        title.grid(row=0, columnspan=self.nearest_square)
+        gridded = 0
+        row = 1
+        column = 0
+        while gridded < self.count:
+            self.buttons[gridded].grid(row=row, column=column)
+            gridded += 1
+            if gridded % self.nearest_square == 0:
+                column = 0
+                row += 1
+            else:
+                column += 1

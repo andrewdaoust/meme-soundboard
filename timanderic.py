@@ -58,7 +58,7 @@ class TimAndEric:
         row = 1
         column = 0
         while gridded < self.count:
-            self.buttons[gridded-1].grid(row=row, column=column)
+            self.buttons[gridded].grid(row=row, column=column)
             gridded += 1
             if gridded % self.nearest_square == 0:
                 column = 0
