@@ -63,7 +63,6 @@ class EricAndre(object):
 
         self.make_grid()
 
-
     def make_grid(self):
         title = Label(self.frame, text=self.board_name)
         title.grid(row=0, columnspan=self.nearest_square)

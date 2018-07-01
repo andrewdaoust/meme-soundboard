@@ -14,6 +14,7 @@ class AllSounds(object):
                          'Sounds\Tim and Eric',
                          'Sounds\Steve Brule',
                          'Sounds\Lenny Pepperbottom',
+                         'Sounds\Tourettes Guy',
                          'Sounds\Misc']
 
         self.paths = []
@@ -92,6 +93,45 @@ class AllSounds(object):
                         'GDangIt',
                         'Theme']
 
+        tg_filenames = ['Ah Shit',
+                        'Bitch',
+                        'Bob Saget 1',
+                        'Bob Saget 2',
+                        'Bob Saget 3',
+                        'Combs',
+                        'Ouch',
+                        'Puerto Rican',
+                        'Shit! Damnit!',
+                        'Shit! Sorry!',
+                        'Star Trek',
+                        'Total',
+                        'Tuba',
+                        'What I Like',
+                        'Youre a Dick',
+                        'Youre a F@&#%t',
+                        'Are You Shitting Me',
+                        'Bacon And Eggs',
+                        'Car Alarm',
+                        'Chewbacca',
+                        'Chicken Shit Bullshit',
+                        'Colgate',
+                        'Duhuhuh',
+                        'Fish Sticks',
+                        'Fuck Salt',
+                        'Hell Hole',
+                        'Holy Fuck',
+                        'I Called Her A Bitch',
+                        'I Love You',
+                        'Mens Asses',
+                        'Mickey Mouse',
+                        'My Own Ass',
+                        'Out Of My Way',
+                        'Shes A Bitch',
+                        'Stay At Home',
+                        'Thats My Ass',
+                        'Wait A Minute',
+                        'You Cant Do Shit']
+
         misc_filenames = ['Yee',
                           'Yee2',
                           'Chilis',
@@ -126,9 +166,9 @@ class AllSounds(object):
                           'Cheezits1',
                           'Cheezits2']
 
-        all_filenames = ea_filenames + te_filenames + sb_filenames + nw_filenames + misc_filenames
+        all_filenames = ea_filenames + te_filenames + sb_filenames + nw_filenames + tg_filenames + misc_filenames
 
-        self.filenames = [ea_filenames, te_filenames, sb_filenames, nw_filenames, misc_filenames]
+        self.filenames = [ea_filenames, te_filenames, sb_filenames, nw_filenames, tg_filenames, misc_filenames]
         for i in range(0, len(self.path_tos)):
             for name in self.filenames[i]:
                 path = '{}\{}.{}'.format(self.path_tos[i], name, self.ext)
