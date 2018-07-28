@@ -68,18 +68,18 @@ class AllSounds(object):
                         'DPants',
                         'FreeRealEstate']
 
-        sb_filenames = ['DorisSalahari',
-                        'LotsHaveEm',
-                        'LetsCheckItOut',
+        sb_filenames = ['Doris Salahari',
+                        'Lots Have Em',
+                        'Lets Check It Out',
                         'Cheers',
-                        'IGotcha',
+                        'I Gotcha',
                         'Dingus',
                         'Gravy',
                         'Orgasm',
                         'Dry',
                         'Church',
                         'Lonely',
-                        'CallMeJengus',
+                        'Call Me Jengus',
                         'Sneeze']
 
         nw_filenames = ['EveryoneKnows',

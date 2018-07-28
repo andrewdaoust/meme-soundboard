@@ -12,18 +12,18 @@ class SteveBrule(object):
         self.path_to = 'Sounds/Steve Brule'
         self.ext = 'wav'
 
-        self.filenames = ['DorisSalahari',
-                          'LotsHaveEm',
-                          'LetsCheckItOut',
+        self.filenames = ['Doris Salahari',
+                          'Lots Have Em',
+                          'Lets Check It Out',
                           'Cheers',
-                          'IGotcha',
+                          'I Gotcha',
                           'Dingus',
                           'Gravy',
                           'Orgasm',
                           'Dry',
                           'Church',
                           'Lonely',
-                          'CallMeJengus',
+                          'Call Me Jengus',
                           'Sneeze']
 
         self.count = len(self.filenames)
