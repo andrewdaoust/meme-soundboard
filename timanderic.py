@@ -12,22 +12,22 @@ class TimAndEric(object):
         self.path_to = 'Sounds/Tim and Eric'
         self.ext = 'wav'
 
-        self.filenames = ['GreatJob',
-                          'BMFahrtz',
-                          'ThePoopTube',
-                          'ReallyWorks',
-                          'BetterThanItUsedToo',
-                          'SellPoopTube',
-                          'Spagett1',
-                          'Spagett2',
-                          'Spagett3',
-                          'Spagett4',
-                          'GotYa',
+        self.filenames = ['Great Job',
+                          'B M Fahrtz',
+                          'The Poop Tube',
+                          'Really Works',
+                          'Better Than It Used Too',
+                          'Sell Poop Tube',
+                          'Spagett 1',
+                          'Spagett 2',
+                          'Spagett 3',
+                          'Spagett 4',
+                          'Got Ya',
                           'Armando',
-                          'CigJuice',
-                          'DiahRihaJones',
-                          'DPants',
-                          'FreeRealEstate']
+                          'Cig Juice',
+                          'Diah Riha Jones',
+                          'D Pants',
+                          'Free Real Estate']
 
         self.count = len(self.filenames)
         self.nearest_square = int(floor(sqrt(self.count)))
