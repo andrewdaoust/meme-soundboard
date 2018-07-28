@@ -4,4 +4,4 @@ This is a soundboard of all the dumb things my friends and I like to reference p
 
 The soundboard utilizes the `pygame` and `tkinter` modules.
 
-The code currently only works for Unix paths but can easily be changed for Windows, (switch `/` for `\`)
+The code currently only works for Unix filesystem paths but can easily be changed for Windows, (switch `/` for `\`)
