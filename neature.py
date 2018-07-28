@@ -12,15 +12,15 @@ class Neature(object):
         self.path_to = 'Sounds/Lenny Pepperbottom'
         self.ext = 'wav'
 
-        self.filenames = ['EveryoneKnows',
+        self.filenames = ['Everyone Knows',
                           'Gun',
                           'Respect',
-                          'HowNeatIsThat',
-                          'ThatsPrettyNeat',
-                          'CuzTheWayItIs',
-                          'WhatABeaut',
-                          'AnimalCalls',
-                          'GDangIt',
+                          'How Neat Is That',
+                          'Thats Pretty Neat',
+                          'Cuz The Way It Is',
+                          'What A Beaut',
+                          'Animal Calls',
+                          'G Dang It',
                           'Theme']
 
         self.count = len(self.filenames)

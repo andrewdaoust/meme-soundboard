@@ -82,15 +82,15 @@ class AllSounds(object):
                         'Call Me Jengus',
                         'Sneeze']
 
-        nw_filenames = ['EveryoneKnows',
+        nw_filenames = ['Everyone Knows',
                         'Gun',
                         'Respect',
-                        'HowNeatIsThat',
-                        'ThatsPrettyNeat',
-                        'CuzTheWayItIs',
-                        'WhatABeaut',
-                        'AnimalCalls',
-                        'GDangIt',
+                        'How Neat Is That',
+                        'Thats Pretty Neat',
+                        'Cuz The Way It Is',
+                        'What A Beaut',
+                        'Animal Calls',
+                        'G Dang It',
                         'Theme']
 
         tg_filenames = ['Ah Shit',
