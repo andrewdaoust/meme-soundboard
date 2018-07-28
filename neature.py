@@ -9,7 +9,7 @@ class Neature(object):
         self.frame = frame
 
         self.board_name = 'Neature Walk Sounds'
-        self.path_to = 'Sounds\Lenny Pepperbottom'
+        self.path_to = 'Sounds/Lenny Pepperbottom'
         self.ext = 'wav'
 
         self.filenames = ['EveryoneKnows',
@@ -30,7 +30,7 @@ class Neature(object):
         self.buttons = []
 
         for name in self.filenames:
-            path = '{}\{}.{}'.format(self.path_to, name, self.ext)
+            path = '{}/{}.{}'.format(self.path_to, name, self.ext)
             self.paths.append(path)
 
         for path in self.paths:

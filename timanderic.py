@@ -9,7 +9,7 @@ class TimAndEric(object):
         self.frame = frame
 
         self.board_name = 'Tim and Eric Sounds'
-        self.path_to = 'Sounds\Tim and Eric'
+        self.path_to = 'Sounds/Tim and Eric'
         self.ext = 'wav'
 
         self.filenames = ['GreatJob',
@@ -36,7 +36,7 @@ class TimAndEric(object):
         self.buttons = []
 
         for name in self.filenames:
-            path = '{}\{}.{}'.format(self.path_to, name, self.ext)
+            path = '{}/{}.{}'.format(self.path_to, name, self.ext)
             self.paths.append(path)
 
         for path in self.paths:

@@ -10,12 +10,12 @@ class AllSounds(object):
 
         self.board_name = 'All Sounds'
         self.ext = 'wav'
-        self.path_tos = ['Sounds\Eric Andre',
-                         'Sounds\Tim and Eric',
-                         'Sounds\Steve Brule',
-                         'Sounds\Lenny Pepperbottom',
-                         'Sounds\Tourettes Guy',
-                         'Sounds\Misc']
+        self.path_tos = ['Sounds/Eric Andre',
+                         'Sounds/Tim and Eric',
+                         'Sounds/Steve Brule',
+                         'Sounds/Lenny Pepperbottom',
+                         'Sounds/Tourettes Guy',
+                         'Sounds/Misc']
 
         self.paths = []
         self.sounds = []
@@ -171,7 +171,7 @@ class AllSounds(object):
         self.filenames = [ea_filenames, te_filenames, sb_filenames, nw_filenames, tg_filenames, misc_filenames]
         for i in range(0, len(self.path_tos)):
             for name in self.filenames[i]:
-                path = '{}\{}.{}'.format(self.path_tos[i], name, self.ext)
+                path = '{}/{}.{}'.format(self.path_tos[i], name, self.ext)
                 self.paths.append(path)
 
         self.count = len(self.paths)

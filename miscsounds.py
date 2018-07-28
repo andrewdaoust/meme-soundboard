@@ -9,7 +9,7 @@ class Misc(object):
         self.frame = frame
 
         self.board_name = 'Miscellaneous Sounds'
-        self.path_to = 'Sounds\Misc'
+        self.path_to = 'Sounds/Misc'
         self.ext = 'wav'
 
         self.filenames = ['Yee',
@@ -53,7 +53,7 @@ class Misc(object):
         self.buttons = []
 
         for name in self.filenames:
-            path = '{}\{}.{}'.format(self.path_to, name, self.ext)
+            path = '{}/{}.{}'.format(self.path_to, name, self.ext)
             self.paths.append(path)
 
         for path in self.paths:
