@@ -80,7 +80,16 @@ class AllSounds(object):
                         'Church',
                         'Lonely',
                         'Call Me Jengus',
-                        'Sneeze']
+                        'Sneeze',
+                        'Check It Out!',
+                        'Friendly Lady',
+                        'Guacamole',
+                        'Hi',
+                        'Holy Guacamole',
+                        'Konnichiwa',
+                        'Not That Hard',
+                        'Shushee Sandwiches',
+                        'Hot Guacamole']
 
         nw_filenames = ['Everyone Knows',
                         'Gun',
