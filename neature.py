@@ -1,3 +1,4 @@
+import os
 from tkinter import *
 from pygame import mixer
 from math import sqrt, floor
@@ -9,7 +10,7 @@ class Neature(object):
         self.frame = frame
 
         self.board_name = 'Neature Walk Sounds'
-        self.path_to = 'Sounds/Lenny Pepperbottom'
+        self.path_to = os.path.join('Sounds', 'Lenny Pepperbottom')
         self.ext = 'wav'
 
         self.filenames = ['Everyone Knows',
@@ -30,7 +31,7 @@ class Neature(object):
         self.buttons = []
 
         for name in self.filenames:
-            path = '{}/{}.{}'.format(self.path_to, name, self.ext)
+            path = '{}{}{}.{}'.format(self.path_to, os.sep, name, self.ext)
             self.paths.append(path)
 
         for path in self.paths:
