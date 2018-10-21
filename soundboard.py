@@ -23,6 +23,7 @@ class Soundboard(object):
         submenu.add_command(label='Eric Andre', command=self.make_andre)
         submenu.add_command(label='Tim and Eric', command=self.make_te)
         submenu.add_command(label='Steve Brule', command=self.make_brule)
+        submenu.add_command(label='Neature Walk', command=self.make_neature)
         submenu.add_command(label='Tourettes Guy', command=self.make_tourettes)
         submenu.add_command(label='Misc. sounds', command=self.make_misc)
 
