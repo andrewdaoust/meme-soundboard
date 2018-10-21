@@ -1,3 +1,4 @@
+import os
 from tkinter import *
 from pygame import mixer
 from math import sqrt, floor
@@ -9,7 +10,7 @@ class Misc(object):
         self.frame = frame
 
         self.board_name = 'Miscellaneous Sounds'
-        self.path_to = 'Sounds/Misc'
+        self.path_to = os.path.join('Sounds', 'Misc')
         self.ext = 'wav'
 
         self.filenames = ['Yee',
@@ -53,7 +54,7 @@ class Misc(object):
         self.buttons = []
 
         for name in self.filenames:
-            path = '{}/{}.{}'.format(self.path_to, name, self.ext)
+            path = '{}{}{}.{}'.format(self.path_to, os.sep, name, self.ext)
             self.paths.append(path)
 
         for path in self.paths:

@@ -1,3 +1,4 @@
+import os
 from tkinter import *
 from pygame import mixer
 from math import sqrt, floor
@@ -10,12 +11,12 @@ class AllSounds(object):
 
         self.board_name = 'All Sounds'
         self.ext = 'wav'
-        self.path_tos = ['Sounds/Eric Andre',
-                         'Sounds/Tim and Eric',
-                         'Sounds/Steve Brule',
-                         'Sounds/Lenny Pepperbottom',
-                         'Sounds/Tourettes Guy',
-                         'Sounds/Misc']
+        self.path_tos = [os.path.join('Sounds', 'Eric Andre'),
+                         os.path.join('Sounds', 'Tim and Eric'),
+                         os.path.join('Sounds', 'Steve Brule'),
+                         os.path.join('Sounds', 'Lenny Pepperbottom'),
+                         os.path.join('Sounds', 'Tourettes Guy'),
+                         os.path.join('Sounds', 'Misc')]
 
         self.paths = []
         self.sounds = []
@@ -180,7 +181,7 @@ class AllSounds(object):
         self.filenames = [ea_filenames, te_filenames, sb_filenames, nw_filenames, tg_filenames, misc_filenames]
         for i in range(0, len(self.path_tos)):
             for name in self.filenames[i]:
-                path = '{}/{}.{}'.format(self.path_tos[i], name, self.ext)
+                path = '{}{}{}.{}'.format(self.path_tos[i], os.sep, name, self.ext)
                 self.paths.append(path)
 
         self.count = len(self.paths)
